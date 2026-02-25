@@ -8,12 +8,16 @@ export default defineConfig({
     writeToDisk: true
   },
   output: {
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      dayjs: 'dayjs',
-      antd: 'antd',
-    },
+    module: true,
+    externals: [
+      'react',
+      /^react\/(.*)$/,
+      'react-dom',
+      /^react-dom\/(.*)$/,
+      'dayjs',
+      /^dayjs\/(.*)$/,
+      'antd',
+    ]
   },
   html: {
     template: './src/index.html',
